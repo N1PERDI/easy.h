@@ -1,6 +1,5 @@
 ﻿#include <iostream>
 #include "easy.h"
-#include <cmath>
 using namespace std;
 void printHello(void) {
 	cout << "Hello, World!!!" << endl;
@@ -12,13 +11,12 @@ void itc_fio(void) {
 	cout << "BABIDJONOVICH" << endl;
 }
 int itc_abs(int s) {
-	cout << fabs(s) << endl;
+	if (s < 0) { s = s * -1; }
 	return s;
 }
 double itc_fabs(double d) {
-	double c = fabs(d);
-	cout << c << endl;
-	return c;
+	if (d < 0) { d = d * -1; }
+	return d;
 }
 int itc_revnbr(int num) {
 	int a, b, c;
@@ -58,13 +56,12 @@ int itc_sqrt(int num) {
 		if (i * i == num)
 			a = i;
 	}
-	cout  << a << endl;
 	return a;
 }
 int itc_skv(int num) {
-	if (num > 0) { cout  << num * num << endl; }
-	else { cout << -1 << endl; }
-	return 0;
+	if (num > 0) { return num * num; }
+	else { return -1; }
+	
 }
 int itc_spr(int a, int b) {
 	if (a > 0 and b > 0) { cout << a * b << endl; }
@@ -73,12 +70,12 @@ int itc_spr(int a, int b) {
 	}
 	return 0;
 }
-int itc_str(int a, int b, int c) {
+int itc_str(int a, double b, int c) {
 	int s, d, e = -1;
 	if ((a < b + c) && (b < a + c) && (c < a + b))
 	{
-		d = (a + b + c) / 2;
-		s = sqrt(d * (d - a) * (d - b) * (d - c));
+		d = (a + b + c) / 2.0;
+		s = 0.5 * (d * (d - a) * (d - b) * (d - c));
 		return s;
 	}
 	else { return e; }
@@ -86,19 +83,36 @@ int itc_str(int a, int b, int c) {
 }
 double itc_scir(int radius) {
 	double p = 3.14, s;
-	int a = -1;
 	if (radius > 0) {
-		s = pow((p * radius), 2);
+		s = (p * radius) * (p * radius);
 		return s;
 	}
-	else { return a; }
+	else { return -1; }
 }
 double itc_pow(int num, int step)
 {
-	int a;
-	a = pow(num, step);
-	return a;
-}
+	double d = num;
+		if (step < 0)
+		{
+		step *= -1;
+		for (int n = 1; n < step; n++)
+		{
+		d *= num;
+		}
+		d = 1 / d;
+		}
+		else if (step == 0)
+		d = 1;
+		else
+		{
+		for (int n = 1; n < step; n++)
+		{
+			d *= num;
+		}
+		}
+		return d;
+	}
+
 bool itc_ispositive(int num)
 {
 	if (num >= 0) { return 1; }
