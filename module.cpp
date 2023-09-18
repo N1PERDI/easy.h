@@ -1,5 +1,4 @@
 ﻿#include <iostream>
-#include "easy.h"
 using namespace std;
 void printHello(void) {
 	cout << "Hello, World!!!" << endl;
