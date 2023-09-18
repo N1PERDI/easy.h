@@ -1,7 +1,4 @@
-#ifndef MODULE_H_INCLUDED
-#define MODULE_H_INCLUDED
-#include <iostream>
-using namespace std;
+ #pragma once
 
 
 void printHello();
@@ -25,4 +22,4 @@ bool itc_ispositive(int num);
 bool its_ispositive_d(double num);
 
 
-#endif //MODULE_H_INCLUDED
+
