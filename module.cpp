@@ -58,16 +58,16 @@ int itc_sqrt(int num) {
 		if (i * i == num)
 			a = i;
 	}
-	cout << "Îòâåò:" << a << endl;
+	cout  << a << endl;
 	return a;
 }
 int itc_skv(int num) {
-	if (num > 0) { cout << "Ïëîùàäü ðàâíà:" << num * num << endl; }
+	if (num > 0) { cout  << num * num << endl; }
 	else { cout << -1 << endl; }
 	return 0;
 }
 int itc_spr(int a, int b) {
-	if (a > 0 and b > 0) { cout << "Ïëîùàäü ðàâíà:" << a * b << endl; }
+	if (a > 0 and b > 0) { cout << a * b << endl; }
 	else {
 		cout << -1 << endl;
 	}
