@@ -1,5 +1,4 @@
- #pragma once
-
+#pragma once
 
 void printHello();
 void itc_name();
@@ -15,11 +14,8 @@ double itc_fmin(double e, double v);
 int itc_sqrt(int num);
 int itc_skv(int num);
 int itc_spr(int a, int b);
-int itc_str(int a, double b, int c);
+int itc_str(int a, int b, int c);
 double itc_scir(int radius);
 double itc_pow(int num, int step);
 bool itc_ispositive(int num);
 bool itc_ispositive_d(double num);
-
-
-
