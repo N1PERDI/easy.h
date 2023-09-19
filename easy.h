@@ -19,7 +19,7 @@ int itc_str(int a, double b, int c);
 double itc_scir(int radius);
 double itc_pow(int num, int step);
 bool itc_ispositive(int num);
-bool its_ispositive_d(double num);
+bool itc_ispositive_d(double num);
 
 
 
