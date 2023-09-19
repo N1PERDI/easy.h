@@ -1,4 +1,5 @@
-﻿#include <iostream>
+#include <iostream>
+
 using namespace std;
 void printHello(void) {
 	cout << "Hello, World!!!" << endl;
@@ -22,13 +23,11 @@ int itc_revnbr(int num) {
 	a = num % 10;
 	b = (num % 100 - a) / 10;
 	c = num / 100;
-	cout << a << b << c << endl;
 	return a, b, c;
 }
 bool itc_iseven(int num) {
-	if (num % 2 == 0) { cout << "TRUE" << endl; }
-	else { cout << "FALSE" << endl; }
-	return 0;
+	if (num % 2 == 0) { return 1; }
+	else { return 0; }
 }
 int itc_max(int num, int num2) {
 	if (num > num2) { return num; }
@@ -55,7 +54,7 @@ int itc_sqrt(int num) {
 		if (i * i == num)
 			a = i;
 	}
-	return a;
+	return a; 
 }
 int itc_skv(int num) {
 	if (num > 0) { return num * num; }
@@ -63,27 +62,30 @@ int itc_skv(int num) {
 	
 }
 int itc_spr(int a, int b) {
-	if (a > 0 and b > 0) { cout << a * b << endl; }
+	if (a > 0 and b > 0) { return a * b; }
 	else {
-		cout << -1 << endl;
+		return -1;
 	}
-	return 0;
 }
-int itc_str(int a, double b, int c) {
-	int s, d, e = -1;
-	if ((a < b + c) && (b < a + c) && (c < a + b))
-	{
-		d = (a + b + c) / 2.0;
-		s = 0.5 * (d * (d - a) * (d - b) * (d - c));
-		return s;
+int itc_str(int a, int b, int c) {
+	double s, d, e = -1;
+	if (a and b and c > 0) {
+		if ((a < b + c) && (b < a + c) && (c < a + b))
+		{
+			d = (a + b + c) / 2.0;
+			s = 0.5 * (d * (d - a) * (d - b) * (d - c));
+			return s;
+		}
+		else { return e; }
 	}
-	else { return e; }
+	else { return -1;
+}
 
 }
 double itc_scir(int radius) {
-	double p = 3.14, s;
+	double p = 3.14;
 	if (radius > 0) {
-		s = (p * radius) * (p * radius);
+		int s = (p * radius) * (p * radius);
 		return s;
 	}
 	else { return -1; }
@@ -93,21 +95,19 @@ double itc_pow(int num, int step)
 	double d = num;
 		if (step < 0)
 		{
-		step *= -1;
-		for (int n = 1; n < step; n++)
-		{
-		d *= num;
-		}
-		d = 1 / d;
+			step *= -1;
+			for (int n = 1; n < step; n++)
+			{ d *= num; }
+			d = 1 / d;
 		}
 		else if (step == 0)
-		d = 1;
+			d = 1;
 		else
 		{
-		for (int n = 1; n < step; n++)
-		{
-			d *= num;
-		}
+			for (int n = 1; n < step; n++)
+			{
+				d *= num;
+			}
 		}
 		return d;
 	}
