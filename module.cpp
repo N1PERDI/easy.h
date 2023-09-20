@@ -5,10 +5,12 @@ void printHello(void) {
 	cout << "Hello, World!!!" << endl;
 }
 void itc_name(void) {
-	cout << "BABIDJON" << " ";
+	cout << "Anton" << " ";
 }
 void itc_fio(void) {
-	cout << "BABIDJONOVICH" << endl;
+	cout << "Zankevich ";
+	itc_name();
+	cout << "Pavlovich";
 }
 int itc_abs(int s) {
 	if (s < 0) { s = s * -1; }
@@ -19,11 +21,15 @@ double itc_fabs(double d) {
 	return d;
 }
 int itc_revnbr(int num) {
-	int a, b, c;
-	a = num % 10;
-	b = (num % 100 - a) / 10;
-	c = num / 100;
-	return a, b, c;
+	int pos = num % 10; // первая
+	int sr = (((num - pos) / 10) % 10); // вторая
+	int nac = ((num / 10) - sr) / 10;  // третья
+	int sum = (pos * 100) + (sr * 10) + nac;
+	if ((num / 10 == 0) and (((num - pos) / 10) % 10)) { sum = nac * 100; }
+
+	return sum;
+
+
 }
 bool itc_iseven(int num) {
 	if (num % 2 == 0) { return 1; }
@@ -48,13 +54,12 @@ double itc_fmin(double e, double v) {
 
 }
 int itc_sqrt(int num) {
-	int a = -1;
-	for (int i = 1; i < num; i++)
+	for (int s = 1; s < num; s++)
 	{
-		if (i * i == num)
-			a = i;
+		if (s * s == num)
+			return s;
 	}
-	return a; 
+	return -1; 
 }
 int itc_skv(int num) {
 	if (num > 0) { return num * num; }
@@ -68,24 +73,24 @@ int itc_spr(int a, int b) {
 	}
 }
 int itc_str(int a, int b, int c) {
-	double s, d, e = -1;
-	if (a and b and c > 0) {
-		if ((a < b + c) && (b < a + c) && (c < a + b))
-		{
-			d = (a + b + c) / 2.0;
-			s = 0.5 * (d * (d - a) * (d - b) * (d - c));
-			return s;
+	double s;
+	double t = b;
+	double q = 2.0;
+	double polp;
+	if (a > 0 and b > 0 and c > 0) {
+		if (a + b > c and b + c > a and c + a > b) {
+		   polp = (a + t + c)/ q;
 		}
-		else { return e; }
+		else { return -1; }
 	}
-	else { return -1;
+	else { return -1; }
+	itc_sqrt((polp * (polp - a) * (polp - b) * (polp - c)));
 }
-
-}
+ 
 double itc_scir(int radius) {
 	double p = 3.14;
 	if (radius > 0) {
-		int s = (p * radius) * (p * radius);
+		int s = p* (radius * radius);
 		return s;
 	}
 	else { return -1; }
@@ -97,7 +102,9 @@ double itc_pow(int num, int step)
 		{
 			step *= -1;
 			for (int n = 1; n < step; n++)
-			{ d *= num; }
+			{
+				d *= num;
+			}
 			d = 1 / d;
 		}
 		else if (step == 0)
