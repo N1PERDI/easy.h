@@ -54,6 +54,8 @@ double itc_fmin(double e, double v) {
 
 }
 int itc_sqrt(int num) {
+	if (num == 1) { return 1; }
+	if (num == 0) { return 0; }
 	for (int s = 1; s < num; s++)
 	{
 		if (s * s == num)
@@ -89,8 +91,8 @@ int itc_str(int a, int b, int c) {
  
 double itc_scir(int radius) {
 	double p = 3.14;
-	if (radius > 0) {
-		int s = p* (radius * radius);
+	if (radius >= 0) {
+		double s = p* (radius * radius);
 		return s;
 	}
 	else { return -1; }
